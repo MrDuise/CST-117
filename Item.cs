@@ -1,5 +1,5 @@
 ﻿//Michael Duisenberg
-//11-12-20
+//updated on 11-12-20
 //This class is the parent class for my inventory project
 //This is all my own code
 
@@ -15,7 +15,7 @@ namespace InventoryItems
         public string name { get; private set; }
         public string description { get; private set; }
         public decimal price { get; private set; }
-        public int numInStock { get; private set; }
+        public int numInStock { get; set; }
         public int rating { get; private set; }//must be set between 1 - 10
 
         /// <summary>

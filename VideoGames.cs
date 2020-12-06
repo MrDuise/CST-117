@@ -1,4 +1,14 @@
-﻿using System;
+﻿//Michael Duisenberg
+//VideoGames class, child class of Item class
+//Each item in the inventory is of the VideoGame class
+//updated on 12-1-20
+//This is all my own code
+
+
+
+
+
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -7,20 +17,9 @@ namespace InventoryItems
     public class VideoGames : Item
     {
 
-        //add in video game variables
-
-         public string ageRating { get; private set; }
-        public string genre { get; private set; }
-        public double gameLength { get; private set; }
-
-        //add in new party variables
-
-        
-        public VideoGames(int itemIdVal, string nameVal, string descriptionVal, decimal priceVal, int numInStockVal, int ratingVal, string ageRatingVal, string genreVal, double gameLengthVal) : base(itemIdVal, nameVal, descriptionVal, priceVal, numInStockVal, ratingVal)
+        public VideoGames(int itemIdVal, string nameVal, string descriptionVal, decimal priceVal, int numInStockVal, int ratingVal) : base(itemIdVal, nameVal, descriptionVal, priceVal, numInStockVal, ratingVal)
         {
-            ageRating = ageRatingVal;
-            genre = genreVal;
-            gameLength = gameLengthVal; 
+           
         }
     }
 }
