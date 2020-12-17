@@ -41,6 +41,8 @@
             this.itemPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemNumInStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.itemRating = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtNameSearch = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSearchPage)).BeginInit();
             this.SuspendLayout();
@@ -61,7 +63,7 @@
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(129, 207);
+            this.btnSearch.Location = new System.Drawing.Point(118, 263);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(132, 29);
             this.btnSearch.TabIndex = 9;
@@ -71,6 +73,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.txtNameSearch);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnSearch);
@@ -78,7 +82,7 @@
             this.groupBox1.Controls.Add(this.txtItemIdSearch);
             this.groupBox1.Location = new System.Drawing.Point(662, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(338, 273);
+            this.groupBox1.Size = new System.Drawing.Size(338, 321);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Search Inventory";
@@ -160,6 +164,22 @@
             this.itemRating.Name = "itemRating";
             this.itemRating.Width = 125;
             // 
+            // txtNameSearch
+            // 
+            this.txtNameSearch.Location = new System.Drawing.Point(191, 161);
+            this.txtNameSearch.Name = "txtNameSearch";
+            this.txtNameSearch.Size = new System.Drawing.Size(133, 22);
+            this.txtNameSearch.TabIndex = 18;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(100, 161);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 17);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "Name:";
+            // 
             // searchInventory
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -191,5 +211,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn itemPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemNumInStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn itemRating;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtNameSearch;
     }
 }

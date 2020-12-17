@@ -64,13 +64,23 @@ namespace InventoryItems
 
             // File.WriteAllLines(fullDirLocationVal, myInventory);
 
-            //using (StreamWriter itemSave = new StreamWriter(fullDirLocationVal))
-            //{
-            //    foreach(string items in myInventory.ToString())
+            using (StreamWriter itemSave = File.AppendText(fullDirLocationVal))
+            {
+               for(int a = 0; a < myInventory.Count; a++)
+                {
+                   
+                    itemSave.WriteLine(myInventory[a].itemId + "`");
+                    itemSave.WriteLine(myInventory[a].name + "`");
+                    itemSave.WriteLine(myInventory[a].description + "`");
+                    itemSave.WriteLine(myInventory[a].price + "`");
+                    itemSave.WriteLine(myInventory[a].numInStock + "`");
+                    itemSave.WriteLine(myInventory[a].rating + "`");
 
-            //        itemSave.WriteLine(items);
+                }
 
-            //}
+                    
+
+            }
 
             return (myInventory);
         }
@@ -85,10 +95,33 @@ namespace InventoryItems
 
             List<string> fileContents = new List<string>();
 
+            string fileData = "";
+            
+
+            string[] fileContents1 = new string[6];
+            
+
             using (StreamReader file = new StreamReader(fullDirLocation))
             {
-                fileContents.Add(file.ReadLine());
+                while(!file.EndOfStream)
+                {
+                    fileContents.Add(file.ReadLine());
+                }
+                
             }
+
+
+            //using (StreamReader file = new StreamReader(fullDirLocation))
+            //{
+            //    while (!file.EndOfStream)
+            //    {
+            //        fileData = file.ReadLine();
+
+            //    }
+
+            //}
+
+            //string[] fileContents1 = fileData.Split('`');
 
             return fileContents;
         }
@@ -137,9 +170,9 @@ namespace InventoryItems
         /// <param name="id"></param>
         /// <param name="price"></param>
         /// <returns></returns>
-        public List<VideoGames> search(List<VideoGames> myInv, string id, string price)
+        public List<VideoGames> search(List<VideoGames> myInv, string id, string price, string name)
         {
-            
+
             List<VideoGames> newListSearch = new List<VideoGames>();
             List<VideoGames> newListDisplay = new List<VideoGames>();
 
@@ -156,20 +189,43 @@ namespace InventoryItems
                 //https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1.find?view=net-5.0
                 //----------------------------------------------------------------------------
 
-                if (newListSearch.Exists(x => x.itemId == id1 && x.price == priceVal) == false)
+                if (newListSearch.Exists(x => x.itemId == id1) == false)
                 {
-                    MessageBox.Show("There was nothing that matched your search");
-                }
-                else if (newListSearch == null)
-                {
-                    MessageBox.Show("List is empty");
+                    MessageBox.Show("There was nothing that matched your ID search");
                 }
                 else
                 {
-                    //if a result is found, add the results to the display list
-                    newListDisplay.Add(newListSearch.Find(x => x.itemId == id1 && x.price == priceVal));
-
+                    newListDisplay.Add(newListSearch.Find(x => x.itemId == id1));
                 }
+
+
+                if (newListSearch.Exists(x => x.price == priceVal) == false)
+                {
+                    MessageBox.Show("There was nothing that matched your price search");
+                }
+                else
+                {
+                    newListDisplay.Add(newListSearch.Find(x => x.price == priceVal));
+                }
+
+
+
+                if (newListSearch.Exists(x => x.name.Contains(name)) == false)
+                {
+                    MessageBox.Show("There was nothing that matched your name search");
+                }
+                else
+                {
+                    newListDisplay.Add(newListSearch.Find(x => x.name.Contains(name)));
+                }
+
+
+
+                if (newListSearch == null)
+                {
+                    MessageBox.Show("List is empty");
+                }
+
 
             }
             //catch statement for if the user doesn't enter anything into the search boxes, which means that id and price would be empty

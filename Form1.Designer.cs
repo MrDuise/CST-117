@@ -45,6 +45,7 @@
             // 
             // btnAddItemForm
             // 
+            this.btnAddItemForm.Font = new System.Drawing.Font("Monotype Corsiva", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddItemForm.Location = new System.Drawing.Point(994, 12);
             this.btnAddItemForm.Name = "btnAddItemForm";
             this.btnAddItemForm.Size = new System.Drawing.Size(89, 53);
@@ -55,6 +56,7 @@
             // 
             // dgvMainScreen
             // 
+            this.dgvMainScreen.BackgroundColor = System.Drawing.SystemColors.ActiveBorder;
             this.dgvMainScreen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvMainScreen.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Select,
@@ -123,6 +125,7 @@
             // 
             // btnDeleteItem
             // 
+            this.btnDeleteItem.Font = new System.Drawing.Font("Monotype Corsiva", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteItem.Location = new System.Drawing.Point(994, 101);
             this.btnDeleteItem.Name = "btnDeleteItem";
             this.btnDeleteItem.Size = new System.Drawing.Size(89, 50);
@@ -133,6 +136,7 @@
             // 
             // btnSearchForm
             // 
+            this.btnSearchForm.Font = new System.Drawing.Font("Monotype Corsiva", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSearchForm.Location = new System.Drawing.Point(1126, 62);
             this.btnSearchForm.Name = "btnSearchForm";
             this.btnSearchForm.Size = new System.Drawing.Size(105, 41);
@@ -143,9 +147,10 @@
             // 
             // btnUpDateNumInStock
             // 
-            this.btnUpDateNumInStock.Location = new System.Drawing.Point(1126, 164);
+            this.btnUpDateNumInStock.Font = new System.Drawing.Font("Monotype Corsiva", 10.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUpDateNumInStock.Location = new System.Drawing.Point(1114, 164);
             this.btnUpDateNumInStock.Name = "btnUpDateNumInStock";
-            this.btnUpDateNumInStock.Size = new System.Drawing.Size(104, 61);
+            this.btnUpDateNumInStock.Size = new System.Drawing.Size(116, 81);
             this.btnUpDateNumInStock.TabIndex = 12;
             this.btnUpDateNumInStock.Text = "Update Number In  Stock";
             this.btnUpDateNumInStock.UseVisualStyleBackColor = true;
@@ -155,12 +160,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(1255, 515);
             this.Controls.Add(this.btnUpDateNumInStock);
             this.Controls.Add(this.btnSearchForm);
             this.Controls.Add(this.btnDeleteItem);
             this.Controls.Add(this.dgvMainScreen);
             this.Controls.Add(this.btnAddItemForm);
+            this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Name = "mainScreen";
             this.Text = "Inventory Screen";
             this.Load += new System.EventHandler(this.mainScreen_Load);

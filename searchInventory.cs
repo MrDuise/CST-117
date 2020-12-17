@@ -37,6 +37,7 @@ namespace Inventory_Project
 
             string id = txtItemIdSearch.Text;
             string price = txtItemPriceSearch.Text;
+            string name = txtNameSearch.Text;
 
             if(txtItemIdSearch.Text == null)
             {
@@ -44,7 +45,7 @@ namespace Inventory_Project
             }
 
             //results of search are added into the newList List object
-            newList = searchItem.search(mainScreen.mainList, id, price);
+            newList = searchItem.search(mainScreen.mainList, id, price, name);
 
             //display the search results 
             foreach (var item in newList)
@@ -54,6 +55,7 @@ namespace Inventory_Project
 
             txtItemIdSearch.Clear();
             txtItemPriceSearch.Clear();
+            txtNameSearch.Clear();
         }
     }
 }

@@ -2,6 +2,7 @@
  * CST-117 
  * Inventory Project main inventory screen
  * Updated 12-5-20
+ * This is my own code unless otherwise stated
 */
 
 
@@ -113,8 +114,17 @@ namespace Inventory_Project
                 if (oneCell.Selected)
                 {
                     index = oneCell.RowIndex;
-                    dgvMainScreen.Rows.RemoveAt(oneCell.RowIndex);
-                    mainList = newItem.delete(mainList, index);
+
+                    int itemID = mainList[index].itemId;
+                    string itemName = mainList[index].name;
+                    string itemDesc = mainList[index].description;
+                    decimal itemCost = mainList[index].price;
+                    int numInStock = mainList[index].numInStock;
+                    int rating = mainList[index].rating;
+
+                    Delete newDelete = new Delete(itemID, itemName, itemDesc, itemCost, numInStock, rating, index);
+                    newDelete.Show();
+                    
                 }
                     
             }
@@ -124,8 +134,25 @@ namespace Inventory_Project
         private void btnUpDateNumInStock_Click(object sender, EventArgs e)
         {
             staticVar = this;
-            UpdateNumInStockForm newUpdate = new UpdateNumInStockForm();
-            newUpdate.Show();
+            int index = -1;
+
+            foreach (DataGridViewCell oneCell in dgvMainScreen.SelectedCells)
+            {
+                if (oneCell.Selected)
+                {
+                    index = oneCell.RowIndex;
+                    UpdateNumInStockForm newUpdate = new UpdateNumInStockForm(index);
+
+                    if(index != -1)
+                    {
+                        newUpdate.Show();
+                    }
+                    
+
+                }
+            }
+            
+            
         }
     }
 }

@@ -53,7 +53,7 @@ namespace Inventory_Project
             //https://www.techrepublic.com/article/opening-form-instances-in-c/
             //Code to display items on inventory dataView control was gotten from Classmate Zac Almas
 
-            //var index = mainScreen.staticVar.dgvMainScreen.Rows.Add();
+            
 
 
 
@@ -77,10 +77,6 @@ namespace Inventory_Project
 
             this.Hide();
             mainScreen.staticVar.Show();
-
-
-
-            
 
         }
     }

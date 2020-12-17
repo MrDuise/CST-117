@@ -23,36 +23,60 @@ namespace Inventory_Project
 {
     public partial class UpdateNumInStockForm : Form
     {
-        public UpdateNumInStockForm()
+
+         public int index { get; private set; }
+        public UpdateNumInStockForm(int indexVal)
         {
             InitializeComponent();
+
+            index = indexVal;
+
+            
+            
+            try
+            {
+                lblCurrentAmount.Text = string.Format("This is the current amount: {0}", mainScreen.mainList[index].numInStock);
+            }
+
+            catch
+            {
+                MessageBox.Show("Please select an item");
+                
+            }
+                
+            
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            int index;
-            int newNumber = Convert.ToInt32(txtNewNumInStock.Text);
+           
 
-            foreach (DataGridViewCell oneCell in mainScreen.staticVar.dgvMainScreen.SelectedCells)
+            try
             {
-                if (oneCell.Selected)
+                
+
+                int newNumber = Convert.ToInt32(txtNewNumInStock.Text);
+                mainScreen.mainList = mainScreen.newItem.updateNumInStock(mainScreen.mainList, index, newNumber);
+
+            
+
+                mainScreen.staticVar.dgvMainScreen.Rows.Clear();
+
+                foreach (var item in mainScreen.mainList)
                 {
-                    index = oneCell.RowIndex;
-                    mainScreen.mainList =  mainScreen.newItem.updateNumInStock(mainScreen.mainList, index, newNumber);
-                    
+                    mainScreen.staticVar.dgvMainScreen.Rows.Add(false, item.itemId, item.name, item.description, item.price, item.numInStock, item.rating);
                 }
 
+                this.Hide();
+                mainScreen.staticVar.Show();
             }
 
-            mainScreen.staticVar.dgvMainScreen.Rows.Clear();
-
-            foreach (var item in mainScreen.mainList)
+            catch
             {
-                mainScreen.staticVar.dgvMainScreen.Rows.Add(false, item.itemId, item.name, item.description, item.price, item.numInStock, item.rating);
+                MessageBox.Show("Please enter a new number");
             }
 
-            this.Hide();
-            mainScreen.staticVar.Show();
+           
         }
     }
 }
